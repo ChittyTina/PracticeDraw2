@@ -36,11 +36,6 @@ public class Practice05ComposeShaderView extends View {
         // 用 Paint.setShader(shader) 设置一个 ComposeShader
         // Shader 1: BitmapShader 图片：R.drawable.batman
         // Shader 2: BitmapShader 图片：R.drawable.batman_logo
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
         Shader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
@@ -51,6 +46,12 @@ public class Practice05ComposeShaderView extends View {
         Shader shader3 = new ComposeShader(shader,shader2, PorterDuff.Mode.DST_IN);
 
         paint.setShader(shader3);
+
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
 
         canvas.drawCircle(200, 200, 200, paint);
     }

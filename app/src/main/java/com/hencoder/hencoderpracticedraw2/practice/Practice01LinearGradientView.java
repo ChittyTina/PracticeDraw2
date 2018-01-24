@@ -29,15 +29,14 @@ public class Practice01LinearGradientView extends View {
     {
         // 用 Paint.setShader(shader) 设置一个 LinearGradient
         // LinearGradient 的参数：坐标：(100, 100) 到 (500, 500) ；颜色：#E91E63 到 #2196F3
+        Shader shader = new LinearGradient(100,100,500,500, Color.parseColor("#E91E63") , Color.parseColor("#2196F3") , Shader.TileMode.CLAMP);
+        paint.setShader(shader);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        @SuppressLint("DrawAllocation")
-        Shader shader = new LinearGradient(100,100,500,500, Color.parseColor("#E91E63") , Color.parseColor("#2196F3") , Shader.TileMode.CLAMP);
-        paint.setShader(shader);
         canvas.drawCircle(300, 300, 200, paint);
 
     }

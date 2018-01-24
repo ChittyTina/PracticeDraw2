@@ -31,15 +31,15 @@ public class Practice04BitmapShaderView extends View {
     {
         // 用 Paint.setShader(shader) 设置一个 BitmapShader
         // Bitmap: R.drawable.batman
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+        Shader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+        paint.setShader(shader);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
-        Shader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
-        paint.setShader(shader);
         canvas.drawCircle(200, 200, 200, paint);
     }
 }
